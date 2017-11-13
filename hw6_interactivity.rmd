@@ -17,7 +17,7 @@ instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
   clean_names()
 ```
 
-
+##Make histogram of order hour of day for personal care department
 ```{r}
 instacart_data %>% 
   filter(department == "personal care" & order_dow == 6) %>% 
