@@ -2,35 +2,70 @@
 title: "Instacart Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+
 ```
 
-Column {data-width=650}
+```{r}
+library(tidyverse)
+library(dplyr)
+library(plotly)
+library(janitor)
+library(forcats)
+
+instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
+  clean_names()
+```
+Row
 -----------------------------------------------------------------------
 
-### Chart A
+### Barchart
 
 ```{r}
+instacart_data %>%
+  mutate(department = factor(department)) %>%
+  group_by(department) %>%
+    summarize(num_orders = n()) %>%
+    mutate(department = fct_reorder(department, -num_orders)) %>% 
+    plot_ly(x = ~department, y = ~num_orders, type = "bar", color = ~department) %>%
+    layout(margin = list(l = 50, r = 10, t = 15, b = 140))
 
 ```
 
-Column {data-width=350}
+Row{.tabset .tabset-fade}
 -----------------------------------------------------------------------
 
-### Chart B
+### Scatterplot
 
 ```{r}
+instacart_data_orders = instacart_data %>%
+  group_by(product_name, department) %>%
+  summarize(num_order = n())
+  
+instacart_data_reorders = instacart_data %>%
+  filter(reordered == 1) %>%
+  # select(reordered, product_name, department) %>%
+  group_by(product_name) %>%
+  summarize(num_reorder = n())
+  
+instacart_data_order_reorder = left_join(instacart_data_orders, instacart_data_reorders, by = "product_name") %>%
+  replace_na(list(num_reorder = 0))
 
+# Plotly scatter plot
+instacart_data_order_reorder %>% 
+plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 ```
 
-### Chart C
+### Histogram
 
 ```{r}
-
+instacart_data %>% 
+  filter(department == "personal care" & order_dow == 6) %>% 
+  plot_ly(x = ~order_hour_of_day, type = "histogram", color = "red") %>% 
+  layout(yaxis = list(title = "count"))
 ```
 
