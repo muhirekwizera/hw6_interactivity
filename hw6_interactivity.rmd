@@ -1,6 +1,6 @@
 ---
 title: "HW6_interactivity"
-author: "Manali Phadke"
+author: "Manali Phadke, Muhire Kwizera"
 date: "November 13, 2017"
 output: html_document
 ---
