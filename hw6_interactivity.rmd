@@ -5,3 +5,13 @@ date: "November 13, 2017"
 output: html_document
 ---
 
+```{r}
+#loaded packages 
+library(tidyverse)
+library(dplyr)
+library(plotly)
+library(janitor)
+
+instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
+  clean_names()
+
