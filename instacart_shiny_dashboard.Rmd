@@ -1,0 +1,38 @@
+---
+title: "Instacart Shiny Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+
+
+Row
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Row {.tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
