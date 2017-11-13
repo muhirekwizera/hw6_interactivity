@@ -11,6 +11,7 @@ library(tidyverse)
 library(dplyr)
 library(plotly)
 library(janitor)
+library(forcats)
 
 instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
   clean_names()
@@ -24,3 +25,18 @@ instacart_data %>%
   layout(yaxis = list(title = "count"))
 ```
 
+```
+
+##Make a barplot of number of orders for each department
+```{r}
+instacart_data %>%
+  mutate(department = factor(department)) %>%
+  group_by(department) %>%
+    summarize(num_orders = n()) %>%
+    mutate(department = fct_reorder(department, -num_orders)) %>% 
+    plot_ly(x = ~department, y = ~num_orders, type = "bar", color = ~department) %>%
+    layout(margin = list(l = 50, r = 10, t = 15, b = 140))
+
+ 
+
+```
