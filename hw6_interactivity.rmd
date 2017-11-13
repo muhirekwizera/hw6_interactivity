@@ -42,18 +42,20 @@ instacart_data %>%
 
 ```{r}
 instacart_data_orders = instacart_data %>%
-  group_by(product_name) %>%
+  group_by(product_name, department) %>%
   summarize(num_order = n())
   
   
 instacart_data_reorders = instacart_data %>%
   filter(reordered == 1) %>%
-  select(reordered, product_name) %>%
+  # select(reordered, product_name, department) %>%
   group_by(product_name) %>%
   summarize(num_reorder = n())
   
 instacart_data_order_reorder = left_join(instacart_data_orders, instacart_data_reorders, by = "product_name") %>%
   replace_na(list(num_reorder = 0))
 
-
+# Plotly scatter plot
+instacart_data_order_reorder %>% 
+plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 ```
