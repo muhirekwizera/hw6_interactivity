@@ -14,4 +14,13 @@ library(janitor)
 
 instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
   clean_names()
+```
+
+
+```{r}
+instacart_data %>% 
+  filter(department == "personal care" & order_dow == 6) %>% 
+  plot_ly(x = ~order_hour_of_day, type = "histogram", color = "red") %>% 
+  layout(yaxis = list(title = "count"))
+```
 
