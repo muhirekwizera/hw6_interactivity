@@ -26,14 +26,14 @@ Column {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
-departments = instacart_data %>% distinct(department) %>% pull()
+ departments = instacart_data %>% distinct(department) %>% pull()
 
 # check box
 # checkboxGroupInput("department_choice", label = h3("Department"), choices = departments)
 
 # selectInput widget
-selectInput("department_choice", label = h3("Select department"),
-            choices = departments, selected = "produce")
+#selectInput("department_choice", label = h3("Select department"),
+           # choices = departments, selected = "produce")
 
 # max_price = 1000
 # min_price = airbnb_data %>% distinct(price) %>% min()
@@ -44,10 +44,10 @@ selectInput("department_choice", label = h3("Select department"),
 # 
 # room_choice = airbnb_data %>% distinct(room_type) %>% pull()
 # 
-# # radioButtons widget
-# radioButtons("room_choice", label = h3("Choose room type"),
-#     choices = room_choice, 
-#     selected = "Entire home/apt")
+# radioButtons widget
+ radioButtons("department_choice", label = h3("Choose departmeent type"),
+     choices = departments, 
+     selected = "produce")
 ```
 
 Row
@@ -92,11 +92,12 @@ plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 ### Histogram
 
 ```{r}
-renderPlotly(
+renderPlotly({
 instacart_data %>% 
-  filter(department == input$department_choice & order_dow == 6) %>% 
+  filter(input$department == department_choice & order_dow == 6) %>% 
   plot_ly(x = ~order_hour_of_day, type = "histogram", color = "red") %>% 
   layout(yaxis = list(title = "count"))
+}
 )
 ```
 
