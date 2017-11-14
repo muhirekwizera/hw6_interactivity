@@ -7,8 +7,7 @@ navbar:
       href: about.html
     - text: "Instacart Dashboard"
       href: instacart_dashboard.html
-    - text: "Instacart Shiny Dashboard"
-      href: instacart_shiny_dashboard.html
+
     - icon: fa-envelope fa-lg
       href: mailto:<you@youremail.com>
     - icon: fa-github fa-lg
