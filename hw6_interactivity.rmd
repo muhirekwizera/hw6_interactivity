@@ -28,6 +28,8 @@ These are descriptions of the relavent variables:
   order_hour_of_day:hour of day when the order was placed
   
   reordered: whether the product was reordered or not.
+
+
   
 ##Make histogram of order hour of day for personal care department
 ```{r}
@@ -37,12 +39,17 @@ instacart_data %>%
   layout(yaxis = list(title = "count"))
 ```
 
+This histogram shows the number of orders over the course of the day for the personal care department.  It appears that items from this department are most frequently ordered in the middle of the day, between 10am and 3pm.
+
+You are able to select the department of your choice using the drop down menu in the shiny enabled dashboard.
+
+
 ##Make a barplot of number of orders for each department
 ```{r}
 instacart_data %>%
   mutate(department = factor(department)) %>%
   group_by(department) %>%
-    summarize(num_orders = n()) %>%
+    summarize(num_orders = n()) %>% View()
     mutate(department = fct_reorder(department, -num_orders)) %>% 
     plot_ly(x = ~department, y = ~num_orders, type = "bar", color = ~department) %>%
     layout(margin = list(l = 50, r = 10, t = 15, b = 140))
@@ -50,6 +57,7 @@ instacart_data %>%
 
 ```
 
+The above barplot shows the number or orders for each department.  Departments are arranced in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
 
 ```{r}
 instacart_data_orders = instacart_data %>%
@@ -71,4 +79,4 @@ instacart_data_order_reorder %>%
 plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 ```
 
-
+We made a scatterplot of the number of orders vs. the number of reorders by product.  We observe a positive linear relationship between the number of orders and the number of reorders, which means as the number of orders for a product increases, so does the number or reorders.

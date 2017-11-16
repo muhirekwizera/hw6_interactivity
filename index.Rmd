@@ -3,6 +3,24 @@ title: "Instacart Data"
 ---
 
 
+<img src="images/instacart.jpg" style="width:55%">
+
 ###The Dataset
 
 The Instacart datatset contains a subset of the larger set of data from instacart users. 
+
+For more information about the dataset, relavent variables, and source code, see the source code and data description tab above.
+
+
+###Graphs
+
+To explore our graphs, please refer to the Instacart Dashboard tab. The shiny enabled dashbooard can be found [here](https://github.com/muhirekwizera/hw6_shiny).
+
+We created a histogram showing the number of orders over the course of the day for the personal care department.  It appears that items from this department are most frequently ordered in the middle of the day, between 10am and 3pm.
+
+We also made a scatterplot of the number of orders vs. the number of reorders by product.  We observe a positive linear relationship between the number of orders and the number of reorders, which means as the number or orders for a product increases, so does the number or reorders.
+
+You are able to select the department(s) of your choice using the drop down menu and checkboxes in the shiny enabled dashboard.
+
+The barplot we created shows the number of orders for each department.  Departments are arranced in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
+
