@@ -64,7 +64,7 @@ plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 
 ```{r}
 instacart_data %>% 
-  filter(department == "personal care" & order_dow == 6) %>% 
+  filter(department == "personal care") %>% 
   plot_ly(x = ~order_hour_of_day, type = "histogram", color = "red") %>% 
   layout(yaxis = list(title = "count"))
 ```

@@ -5,7 +5,7 @@ date: "November 13, 2017"
 output: html_document
 ---
 
-```{r}
+```{r, message=FALSE}
 #loaded packages 
 library(tidyverse)
 library(dplyr)
@@ -16,11 +16,23 @@ library(forcats)
 instacart_data = read_csv("./data/instacart_train_data.csv.zip") %>%
   clean_names()
 ```
+The number of observations in the instacart dataset is `r nrow(instacart_data)`
+The number of variables in the instacart dataset is `r ncol(instacart_data)`
 
+
+These are descriptions of the relavent variables:
+  department: the name of the department
+  
+  product_name: the name of the product
+  
+  order_hour_of_day:hour of day when the order was placed
+  
+  reordered: whether the product was reordered or not.
+  
 ##Make histogram of order hour of day for personal care department
 ```{r}
 instacart_data %>% 
-  filter(department == "personal care" & order_dow == 6) %>% 
+  filter(department == "personal care") %>% 
   plot_ly(x = ~order_hour_of_day, type = "histogram", color = "red") %>% 
   layout(yaxis = list(title = "count"))
 ```
@@ -37,7 +49,6 @@ instacart_data %>%
 
 
 ```
-
 
 
 ```{r}
@@ -59,3 +70,5 @@ instacart_data_order_reorder = left_join(instacart_data_orders, instacart_data_r
 instacart_data_order_reorder %>% 
 plot_ly(x = ~num_order, y = ~num_reorder, type = "scatter", color = ~department)
 ```
+
+
