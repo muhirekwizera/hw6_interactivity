@@ -49,7 +49,7 @@ You are able to select the department of your choice using the drop down menu in
 instacart_data %>%
   mutate(department = factor(department)) %>%
   group_by(department) %>%
-    summarize(num_orders = n()) %>% View()
+    summarize(num_orders = n()) %>% 
     mutate(department = fct_reorder(department, -num_orders)) %>% 
     plot_ly(x = ~department, y = ~num_orders, type = "bar", color = ~department) %>%
     layout(margin = list(l = 50, r = 10, t = 15, b = 140))
