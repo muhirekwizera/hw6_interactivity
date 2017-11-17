@@ -20,7 +20,7 @@ The number of observations in the instacart dataset is `r nrow(instacart_data)`
 The number of variables in the instacart dataset is `r ncol(instacart_data)`
 
 
-These are descriptions of the relavent variables:
+These are descriptions of the relevant variables:
   department: the name of the department
   
   product_name: the name of the product
@@ -57,7 +57,7 @@ instacart_data %>%
 
 ```
 
-The above barplot shows the number or orders for each department.  Departments are arranced in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
+The above barplot shows the number or orders for each department.  Departments are arranged in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
 
 ```{r}
 instacart_data_orders = instacart_data %>%
