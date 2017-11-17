@@ -24,4 +24,4 @@ You are able to select the department(s) of your choice using the drop down menu
 
 The barplot we created shows the number of orders for each department.  Departments are arranged in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
 
-The github repository of this homework is [here](https://github.com/muhirekwizera/hw6_shiny)
+The github repository for plotly and the flexdasboard is [here](https://github.com/muhirekwizera/hw6_interactivity) and the github repositry for the shiny-enabled dashboard is [here](https://github.com/muhirekwizera/hw6_shiny) respectively.
