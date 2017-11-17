@@ -13,17 +13,16 @@ The Instacart dataset contains a subset of the larger set of data from instacart
 
 For more information about the dataset, relevant variables, and source code, see the source code and data description tab above.
 
-
 ###Graphs
 
 To explore our graphs, please refer to the Instacart Dashboard tab. The shiny enabled dashboard can be found [here](https://muhirekwizera.shinyapps.io/hw6_shiny/).
 
 We created a histogram showing the number of orders over the course of the day for the personal care department.  It appears that items from this department are most frequently ordered in the middle of the day, between 10am and 3pm.
 
-We also made a scatterplot of the number of orders vs. the number of reorders by product.  We observe a positive linear relationship between the number of orders and the number of reorders, which means as the number or orders for a product increases, so does the number or reorders.
+We also made a scatterplot of the number of reorders vs. the number of orders by product.  We observe a positive linear relationship between the number of orders and the number of reorders, which means that as the number or orders for a product increases, the number or reorders seems to increase.
 
 You are able to select the department(s) of your choice using the drop down menu and checkboxes in the shiny enabled dashboard.
 
 The barplot we created shows the number of orders for each department.  Departments are arranged in descending order by the number of orders.  Produce has the largest number of orders, while bulk has the lowest.
 
-The github repository for plotly and the flexdasboard is [here](https://github.com/muhirekwizera/hw6_interactivity) and the github repositry for the shiny-enabled dashboard is [here](https://github.com/muhirekwizera/hw6_shiny) respectively.
+The github repository for plotly and the flexdasboard is [here](https://github.com/muhirekwizera/hw6_interactivity) and the github repository for the shiny-enabled dashboard is [here](https://github.com/muhirekwizera/hw6_shiny).
