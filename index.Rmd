@@ -5,6 +5,8 @@ title: "Instacart Data"
 
 <img src="images/instacart.jpg" style="width:55%">
 
+Source: [Bold, C. (2015, January 9). I Had My Groceries Delivered by Instacart...](https://www.thekitchn.com/i-had-my-groceries-delivered-by-instacart-and-heres-how-it-went-214795)
+
 ###The Dataset
 
 The Instacart dataset contains a subset of the larger set of data from instacart users. 
